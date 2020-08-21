@@ -59,7 +59,5 @@ func main() {
 	}
 	s := grpc.NewServer()
 	pb.RegisterProductInfoServer(s, &server{})
-	if err := s.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %v", err)
-	}
+	log.Fatalf(s.Serve(lis))
 }
